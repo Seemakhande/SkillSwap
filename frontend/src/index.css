@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.25);
+    border-radius: 8px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.4);
+  }
+
+  .fade-in {
+    animation: fadeIn 0.35s ease-out both;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float.delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .welcome__nav-item {
+    position: relative;
+    color: inherit;
+  }
+
+  .welcome__nav-item::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, rgba(56,189,248,0.9), rgba(139,92,246,0.9));
+    transition: width 0.28s ease, left 0.28s ease;
+  }
+
+  .welcome__nav-item:hover::after {
+    width: 100%;
+    left: 0;
+  }
+
+  .welcome__hero-badge,
+  .welcome__headline,
+  .welcome__copy,
+  .welcome__cta,
+  .welcome__stats-card,
+  .welcome__spotlight-card,
+  .welcome__feature-card {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out both;
+  }
+
+  .welcome__hero-badge { animation-delay: 0.1s; }
+  .welcome__headline { animation-delay: 0.2s; }
+  .welcome__copy { animation-delay: 0.3s; }
+  .welcome__cta { animation-delay: 0.4s; }
+  .welcome__stats-card { animation-delay: 0.5s; }
+  .welcome__spotlight-card { animation-delay: 0.55s; }
+  .welcome__feature-card { animation-delay: 0.6s; }
+
+  .welcome__feature-card { animation: popIn 0.7s ease-out both; }
+  .welcome__feature-card:nth-child(2) { animation-delay: 0.75s; }
+  .welcome__feature-card:nth-child(3) { animation-delay: 0.8s; }
+
+  .welcome__stats-card {
+    transform: translateY(12px);
+  }
+
+  .welcome__spotlight-card {
+    transform: translateY(16px);
+  }
+
+  .welcome__feature-card {
+    transform: translateY(16px);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @apply bg-slate-900 text-slate-100 antialiased;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background-image: radial-gradient(circle at 0% 0%, #1e1b4b 0%, #0f172a 50%, #020617 100%);
+  background-attachment: fixed;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.4);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(71, 85, 105, 0.7);
+}
